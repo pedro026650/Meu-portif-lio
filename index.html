@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Portifólio</title>
+  <link href="./style.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <nav class="navegacao">
+    <ul class="menu">
+      <li>
+        <a href="#inicio" class="menu-link">inicio</a>
+      </li>
+
+      <li>
+        <a href="#sobre" class="menu-link">sobre</a>
+      </li>
+
+      <li>
+        <a href="#projetos" class="menu-link">projetos</a>
+      </li>
+
+      <li>
+        <a href="#contato" class="menu-link">contato</a>
+      </li>
+
+    </ul>
+
+
+
+  </nav>
+
+  <main id="inicio" class="cabecalho">
+    <div>
+      <img src="./pedro-perfil.jpeg" class="foto-perfil" alt="Pedro Henrique">
+      <h1>Pedro Henrique</h1>
+      <p class="funcao">Desenvolvedor Front-End</p>
+
+    </div>
+
+
+  </main>
+
+  <section id="sobre" class="sobre">
+    <h2 class="sobre-titulo">Sobre Mim</h2>
+    <div class="sobre-texto">
+      <p class="sobre-paragrafo">
+
+        Sou desenvolvedor front-end com foco em criar interfaces modernas, responsivas e acessíveis. Tenho experiência
+        em HTML, CSS e JavaScript, além de trabalhar com frameworks e bibliotecas como React, Vue ou Angular. Gosto de
+        transformar designs em experiências digitais intuitivas, mantendo desempenho, usabilidade e compatibilidade
+        entre navegadores.
+
+        - Experiência em desenvolver interfaces web responsivas
+        - Conhecimento em boas práticas de acessibilidade e SEO
+        - Habilidade em integração com APIs e construção de componentes reutilizáveis
+        - Atuação colaborativa com designers e equipes multidisciplinares</p>
+    </div>
+
+  </section>
+
+  <section id="projetos" class="projetos">
+    <div class="projetos-caixa">
+      <img class="projeto-imagem" src="projeto(1).png">
+      <h3 class="info-projeto">Studio musical</h3>
+      <p class="imagem-paragrafo">Studio musical com animações simples e desing responsivo para um studio musical </p>
+
+    </div>
+
+    <div class="projetos-caixa">
+      <img class="projeto-imagem" src="projeto(2).png">
+      <h3 class="info-projeto">Cafeteria</h3>
+      <p class="imagem-paragrafo">Cafeteria com design moderno e interface responsiva </p>
+
+    </div>
+  </section>
+
+  <section id="contato" class="contato">
+    <h2 class="contato-titulo">contato</h2>
+    <form class="formulario-contato" id="formulario" onsubmit="enviarWhats">
+      <div class="grupo-form">
+        <input placeholder="Nome" class="campo-form" id="nome">
+      </div>
+      <div>
+        <textarea class="text-form" placeholder="Digite sua Mensagem" rows="5" id="mensagem"></textarea>
+      </div>
+      <button type="submit" class="botao-form">Enviar WhatsApp</button>
+    </form>
+  </section>
+
+  <script>
+    function enviarWhats(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const mensagem = document.getElementById('mensagem').value;
+      if (!nome || !mensagem) {
+        alert('Por favor, preencha o nome e a mensagem.');
+        return;
+      }
+      const telefone = '5582993177561';
+      const texto = `OLA, me chamo ${nome}, ${mensagem}`;
+      const msgFormatada = encodeURIComponent(texto);
+      const url = `https://wa.me/${telefone}?text=${msgFormatada}`;
+      window.location.href = url;
+    }
+    const nome = document.getElementById('nome').value;
+    const mensagem = document.getElementById('mensagem').value;
+    const telefone = '5582993177561'
+
+    const texto = `OLA, me chamo ${nome}, ${mensagem}`
+    const msgFormatada = encodeURIComponent(texto)
+
+
+    const url = `https://wa.me/${telefone}?text=${msgFormatada}`
+
+    console.log(url)
+
+    window.open(url, '_blank')
+
+  </script>
+
+</body>
+
+</html>
